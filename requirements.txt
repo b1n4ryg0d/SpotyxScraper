@@ -4,3 +4,4 @@ aiosqlite
 bs4
 requests
 dotenv
+aiosqlite
