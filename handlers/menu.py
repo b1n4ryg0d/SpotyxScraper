@@ -29,11 +29,11 @@ async def start_handler(event: types.Message | types.CallbackQuery):
     else:
         if user_data[1] == "ru":
             await answer_method("<b>SpotyxScraper</b>\nДля работы используйте кнопки ниже.",
-                                reply_markup=await keyboards.menu_keyboard(),
+                                reply_markup=await keyboards.menu_keyboard_ru(),
                                 parse_mode="HTML")
         else:
             await answer_method("<b>SpotyxScraper</b>\nTo work use buttons below.",
-                                reply_markup=await keyboards.menu_keyboard(),
+                                reply_markup=await keyboards.menu_keyboard_en(),
                                 parse_mode="HTML")
 
 @router.callback_query(F.data.startswith("language_"))
@@ -46,10 +46,10 @@ async def select_language_handler(callback: types.CallbackQuery):
     await callback.message.delete()
     if language == "ru":
         await callback.bot.send_message(chat_id=user_id, text="<b>Был выбран русский язык!</b>\nЧтобы перейти в меню, нажмите кнопку ниже.",
-                                    reply_markup=await keyboards.back_button(),
+                                    reply_markup=await keyboards.back_button_ru(),
                                     parse_mode="HTML")
     elif language == "en":
         await callback.bot.send_message(chat_id=user_id, text="<b>English language selected</b>\nTo go to the menu, click the button below.",
-                                    reply_markup=await keyboards.back_button(),
+                                    reply_markup=await keyboards.back_button_en(),
                                     parse_mode="HTML")
     await callback.answer()

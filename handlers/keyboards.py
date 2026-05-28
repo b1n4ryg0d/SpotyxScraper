@@ -13,20 +13,55 @@ async def select_language_keyboard():
     ))
     return builder.as_markup()
 
-async def menu_keyboard():
+async def menu_keyboard_ru():
     builder = InlineKeyboardBuilder()
     builder.add(types.InlineKeyboardButton(
         text="Профиль",
         callback_data="profile"))
     builder.add(types.InlineKeyboardButton(
         text="Парсер",
-        callback_data="parse"))
+        callback_data="scraper"))
     return builder.as_markup()
 
-async def back_button():
+async def menu_keyboard_en():
+    builder = InlineKeyboardBuilder()
+    builder.add(types.InlineKeyboardButton(
+        text="Profile",
+        callback_data="profile"))
+    builder.add(types.InlineKeyboardButton(
+        text="Scraper",
+        callback_data="scraper"))
+    return builder.as_markup()
+
+async def back_button_ru():
     builder = InlineKeyboardBuilder()
     builder.add(types.InlineKeyboardButton(
         text="Назад",
         callback_data="menu"
     ))
+    return builder.as_markup()
+
+async def back_button_en():
+    builder = InlineKeyboardBuilder()
+    builder.add(types.InlineKeyboardButton(
+        text="Back",
+        callback_data="menu"
+    ))
+    return builder.as_markup()
+
+async def scrap_keyboard_ru():
+    builder = InlineKeyboardBuilder()
+    builder.add(types.InlineKeyboardButton(
+        text="Ссылка",
+        callback_data="change_link"
+    ),
+    types.InlineKeyboardButton(
+        text="Искомая информация",
+        callback_data="search_data"
+    ),
+    types.InlineKeyboardButton(
+        text="Начать парсинг",
+        callback_data="start_scraping"
+    ))
+    builder.adjust(2, 1)
     return builder.as_markup()
