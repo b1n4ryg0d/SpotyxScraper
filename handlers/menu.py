@@ -40,8 +40,9 @@ async def start_handler(event: types.Message | types.CallbackQuery):
 async def select_language_handler(callback: types.CallbackQuery):
     language = callback.data.split("_")[1]
     user_id = callback.from_user.id
+    username = callback.from_user.username
     first_name = callback.from_user.first_name
-    await create_user(user_id=user_id, user_first_name=first_name, user_language=language)
+    await create_user(user_id=user_id, username=username, user_first_name=first_name, user_language=language)
     await callback.message.delete()
     if language == "ru":
         await callback.bot.send_message(chat_id=user_id, text="<b>Был выбран русский язык!</b>\nЧтобы перейти в меню, нажмите кнопку ниже.",
