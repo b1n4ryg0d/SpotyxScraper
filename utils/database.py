@@ -4,7 +4,7 @@ db_name = "bot.db"
 
 async def init_db():
     async with aiosqlite.connect(db_name) as con:
-        await con.execute("CREATE TABLE IF NOT EXISTS users(user_id INTEGER PRIMARY KEY, username TEXT OR NONE, first_name TEXT, language TEXT)")
+        await con.execute("CREATE TABLE IF NOT EXISTS users(user_id INTEGER PRIMARY KEY, username TEXT, first_name TEXT, language TEXT)")
         await con.execute("""
                           CREATE TABLE IF NOT EXISTS scrap_history(
                           id INTEGER PRIMARY KEY AUTOINCREMENT,
