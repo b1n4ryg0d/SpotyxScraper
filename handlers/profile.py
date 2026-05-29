@@ -7,7 +7,7 @@ router = Router()
 @router.callback_query(F.data == "profile")
 async def profile_handler(callback: types.CallbackQuery):
     user_id = callback.from_user.id
-    user_first_name = callback.from_user.user_first_name
+    user_first_name = callback.from_user.first_name
     lang = await get_user_language(user_id)
     scraps_count = "В разработке.."
     if lang[0] == "ru":

@@ -1,6 +1,6 @@
 from aiogram import Router, F, types
 from aiogram.fsm.context import FSMContext
-from fastapi.datastructures import StatesGroup, State
+from aiogram.fsm.state import State, StatesGroup
 from handlers.keyboards import scrap_keyboard_ru
 from utils.database import get_user_language
 
